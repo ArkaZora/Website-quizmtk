@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Matematika</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="toggle-wrapper">
+        <button id="toggleTheme">🌓</button>
+        <select id="languageSelect">
+          <option value="id">Indonesia</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+
+      <h1 id="judul">Quiz Matematika</h1>
+      <div id="setup">
+        <label for="jumlahSoal">Nomor Soal:</label>
+        <select id="jumlahSoal">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+
+        <label for="materi">Pilihan Materi:</label>
+        <select id="materi">
+          <option value="semua">Semua Materi</option>
+          <option value="aljabar">Aljabar</option>
+          <option value="geometri">Geometri</option>
+          <option value="aritmetika">Aritmetika</option>
+        </select>
+
+        <label for="kesulitan">Pilih Kesulitan:</label>
+        <select id="kesulitan">
+          <option value="mudah">Mudah</option>
+          <option value="sedang">Sedang</option>
+          <option value="sulit">Sulit</option>
+        </select>
+
+        <label for="timer">Timer (per soal):</label>
+        <select id="timer">
+          <option value="5">5 Detik</option>
+          <option value="10">10 Detik</option>
+          <option value="15">15 Detik</option>
+        </select>
+
+        <label for="mode">Mode:</label>
+        <select id="mode">
+          <option value="latihan">Latihan</option>
+          <option value="ujian">Ujian</option>
+        </select>
+
+        <button onclick="mulaiQuiz()">Mulai Quiz</button>
+      </div>
+
+      <div id="quiz-container" class="fade" style="display: none">
+        <div id="progressBar">
+          <div id="progress"></div>
+        </div>
+        <h2 id="soal"></h2>
+        <input type="text" id="jawaban" placeholder="Masukkan jawaban..." />
+        <button onclick="cekJawaban()">Submit</button>
+        <p id="feedback"></p>
+        <p id="timerDisplay"></p>
+      </div>
+
+      <div id="hasil-container" style="display: none">
+        <h2>Quiz Selesai!</h2>
+        <p id="scoreDisplay"></p>
+        <canvas id="grafikSkor" width="300" height="150"></canvas>
+        <button onclick="restartQuiz()">Main Lagi</button>
+      </div>
+    </div>
+
+    <audio id="benarSound" src="benar.mp3"></audio>
+    <audio id="salahSound" src="salah.mp3"></audio>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>
